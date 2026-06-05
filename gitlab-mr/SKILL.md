@@ -106,4 +106,4 @@ Suivre ces étapes dans l'ordre :
 - Rédiger en **français** sauf les termes techniques (noms de fonctions, variables, classes, paths)
 - Être **concis mais exhaustif** : pas de remplissage, pas d'omission
 - Les listes de changements commencent par une majuscule, pas de point final à chaque item
-- Utiliser le formatage Markdown natif GitLab (émojis sparingly, titres `##`, listes `-`)≈≈
+- Utiliser le formatage Markdown natif GitLab (émojis sparingly, titres `##`, listes `-`)
