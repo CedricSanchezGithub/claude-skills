@@ -9,12 +9,12 @@ Skills use the open Agent Skills standard and work with **Claude Code**, **GitHu
 ## Skills
 
 ### `gitlab-issue`
-Génère une issue GitLab structurée (bug, feature, task) à partir d'une description en langage naturel, et produit la commande `glab issue create` prête à exécuter.
+Generates a structured GitLab issue (bug, feature, task) from a natural language description, and outputs a ready-to-run `glab issue create` command.
 
-**Input:** description libre, logs, stack trace, comportement observé  
-**Output:** issue complète (titre + description adaptée au type) + commande `glab`
+**Input:** free-form description, logs, stack trace, observed behavior  
+**Output:** complete issue (title + type-specific description template) + `glab` command
 
-Avec Claude Code (bash), peut créer l'issue directement sur GitLab après confirmation.
+With Claude Code (bash access), can create the issue directly on GitLab after confirmation.
 
 → [View skill](./gitlab-issue/SKILL.md)
 
@@ -46,12 +46,12 @@ Targets all Compose Multiplatform platforms: Android, iOS, Desktop, Web.
 ---
 
 ### `compose-string-extractor`
-Extrait les chaînes de caractères codées en dur d'un fichier Kotlin Compose Multiplatform et génère les ressources XML + le code modifié.
+Extracts hardcoded strings from a Kotlin Compose Multiplatform file and generates the corresponding XML resources and updated Kotlin code.
 
-**Input:** un fichier Kotlin avec des strings hardcodées dans des composables  
-**Output:** le fichier XML à créer/compléter + le fichier Kotlin avec les `stringResource(...)` en place
+**Input:** a Kotlin file with hardcoded strings in composables  
+**Output:** XML resource file (create or append) + updated Kotlin file with `stringResource(...)` calls
 
-Gère : doublons, placeholders (`$variable` → `%1$s`), nommage de clé dérivé du contenu, chemin XML basé sur le dernier segment du package.
+Handles: duplicates, placeholders (`$variable` → `%1$s`), content-derived key naming, XML path derived from package name.
 
 → [View skill](./compose-string-extractor/SKILL.md)
 
@@ -110,4 +110,4 @@ Skills follow a simple convention:
 
 - `SKILL.md` at the root of each skill directory, with a YAML frontmatter block (`name`, `description`)
 - Assets (templates, examples) in an `assets/` subdirectory
-- No bash commands executed — all skills work on text input only
+- Skills are text-only by default; bash execution is opt-in and always requires user confirmation
