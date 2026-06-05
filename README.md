@@ -8,6 +8,18 @@ Skills use the open Agent Skills standard and work with **Claude Code**, **GitHu
 
 ## Skills
 
+### `gitlab-issue`
+Génère une issue GitLab structurée (bug, feature, task) à partir d'une description en langage naturel, et produit la commande `glab issue create` prête à exécuter.
+
+**Input:** description libre, logs, stack trace, comportement observé  
+**Output:** issue complète (titre + description adaptée au type) + commande `glab`
+
+Avec Claude Code (bash), peut créer l'issue directement sur GitLab après confirmation.
+
+→ [View skill](./gitlab-issue/SKILL.md)
+
+---
+
 ### `gitlab-mr`
 Generates standardized GitLab merge request descriptions from a draft and/or a `git log` history.
 
@@ -78,6 +90,8 @@ cp -r gitlab-mr ~/.copilot/skills/
 ```
 claude-skills/
 ├── README.md
+├── gitlab-issue/
+│   └── SKILL.md
 ├── gitlab-mr/
 │   ├── SKILL.md
 │   └── assets/
