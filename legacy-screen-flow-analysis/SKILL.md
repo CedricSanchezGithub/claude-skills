@@ -39,7 +39,13 @@ Work through each point below. Skip points that genuinely don't apply to the fra
 
 ## Step 4 — Write the report
 
-Use the structure in `references/report-template.md`. Save as `<screen-name>-analysis.md` if file creation is available; otherwise return the markdown directly in the response.
+Use the structure in `references/report-template.md`.
+
+If file creation is available:
+1. Create `docs/screen-flows/` if it does not exist (`mkdir -p docs/screen-flows/`).
+2. Save the report as `docs/screen-flows/<screen-name>-analysis.md`.
+
+If file creation is not available, return the markdown directly in the response.
 
 ## Rules
 
