@@ -52,4 +52,4 @@ If file creation is not available, return the markdown directly in the response.
 - Cite file + function/method + line number for every non-trivial claim.
 - Never invent or extrapolate behavior. Uncertain points go in "Open questions."
 - Stay descriptive, not evaluative — no judgment on code quality.
-- Match the user's language (default: same language as the request).
+- Always write the report in **French**, regardless of the language of the request or the codebase.
