@@ -122,6 +122,31 @@ Cartographie le comportement de l'écran de livraison (DeliveryScreen) dans ce p
 
 ---
 
+### `audit-mcp-server-kotlin`
+Audits an existing Kotlin MCP server (official Kotlin SDK, Gradle Kotlin DSL) against the MCP specification, security best practices and SDK currency — fully offline, from a bundled reference snapshot (no network access required).
+
+**Input:** a Kotlin MCP server codebase (stdio and/or Streamable HTTP), optional `mcp-audit.config.md` at the repo root  
+**Output:** a findings report with rule IDs, severities, `file:line` evidence and proposed fixes — then, after you approve specific rule IDs, the fixes themselves
+
+Covers: 89 rules across versions & deprecated SDK APIs, capabilities, error mapping, stdio hygiene (stdout pollution, keep-alive), Streamable HTTP & OAuth, security (secrets, path traversal, SSRF, token passthrough), resources / prompts / tools design, coroutines & concurrency, tests, and MCP 2026-07-28 forward compatibility.
+
+Read-only by default: nothing is built, run or modified without an explicit request.
+
+**Example prompts:**
+```
+Audite mon serveur MCP Kotlin, il tourne en stdio et lit de la doc interne sur GitLab.
+
+Vérifie que mon serveur MCP respecte les bonnes pratiques de la spec avant que je le passe en HTTP.
+
+Mon serveur MCP est sur le SDK Kotlin 0.11, qu'est-ce qui cloche et qu'est-ce que je dois migrer ?
+
+Corrige STDIO-01 et SEC-03 du rapport d'audit.
+```
+
+→ [View skill](./audit-mcp-server-kotlin/SKILL.md)
+
+---
+
 ## Installation
 
 Each skill is a folder containing a `SKILL.md` file (and optional assets). Copy the folder into your project's skills directory — the tool picks it up automatically.
@@ -165,10 +190,15 @@ claude-skills/
 │   └── SKILL.md
 ├── compose-string-extractor/
 │   └── SKILL.md
-└── legacy-screen-flow-analysis/
+├── legacy-screen-flow-analysis/
+│   ├── SKILL.md
+│   └── references/
+│       └── report-template.md
+└── audit-mcp-server-kotlin/
     ├── SKILL.md
-    └── references/
-        └── report-template.md
+    ├── references/
+    └── assets/
+        └── mcp-audit.config.example.md
 ```
 
 ---
